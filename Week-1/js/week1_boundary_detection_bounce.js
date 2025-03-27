@@ -11,8 +11,8 @@ var player;
 	player = new Player();
 	
 	//------Declare the Player's speed on the x and y axis------
-	player.vx = 5;
-	player.vy = 5;
+	player.vx = 10;
+	player.vy = 10;
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
