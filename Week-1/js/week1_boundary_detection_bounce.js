@@ -11,8 +11,8 @@ var player;
 	player = new Player();
 	
 	//------Declare the Player's speed on the x and y axis------
-	player.vx = 10;
-	player.vy = 10;
+	player.vx = 5;
+	player.vy = 5;
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -31,24 +31,29 @@ function animate()
 	{
 		player.x = canvas.width - player.width/2;
 		player.vx = -player.vx;	
+		player.color = "#0000FF";
 	};
 	
 	if(player.x < 0 + player.width/2)
-		{
-			player.x = 0 + player.width/2;
-			player.vx = -player.vx;	
-		};
-		if(player.y < 0 + player.height/2)
-			{
-				player.y = 0 + player.height/2;
-				player.vy = -player.vy;	
-			};
-			if(player.y > canvas.height - player.height/2)
-				{
-					player.y = canvas.height - player.height/2;
-					player.vy = -player.vy;	
-				};
-				
+	{
+		player.x = 0 + player.width/2;
+		player.vx = -player.vx;	
+		player.color = "#ff0000";
+	};
+
+	if(player.y < 0 + player.height/2)
+	{
+		player.y = 0 + player.height/2;
+		player.vy = -player.vy;	
+		player.color = "#800080";
+	};
+		
+	if(player.y > canvas.height - player.height/2)
+	{
+		player.y = canvas.height - player.height/2;
+		player.vy = -player.vy;	
+		player.color = "#00ffff";
+	};
 	//---------------------------------------------------
 	
 	player.draw();
