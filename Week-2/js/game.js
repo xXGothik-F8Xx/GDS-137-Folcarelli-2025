@@ -16,6 +16,9 @@ player1.x = 35;
 player1.y = 1024/2;
 player1.vx = 0;
 player1.vy = 5;
+var ball = new GameObject();
+ball.vx = 5;
+ball.vy = 5;
 
 function main()
 {
@@ -48,4 +51,40 @@ function main()
 		player1.y = 0 + player1.height/2;
 	}
 	player1.drawRect();
+
+		//----Movement Using the ball's move() function----
+		ball.move();
+		//---------------------------------------------------
+		
+		//--------------Bounce of Right----------------------
+		if(ball.x > canvas.width - ball.width/2)
+		{
+			ball.x = canvas.width - ball.width/2;
+			ball.vx = -ball.vx;	
+			ball.color = "#0000FF";
+		};
+		
+		if(ball.x < 0 + ball.width/2)
+		{
+			ball.x = 0 + ball.width/2;
+			ball.vx = -ball.vx;	
+			ball.color = "#ff0000";
+		};
+	
+		if(ball.y < 0 + ball.height/2)
+		{
+			ball.y = 0 + ball.height/2;
+			ball.vy = -ball.vy;	
+			ball.color = "#800080";
+		};
+			
+		if(ball.y > canvas.height - ball.height/2)
+		{
+			ball.y = canvas.height - ball.height/2;
+			ball.vy = -ball.vy;	
+			ball.color = "#00ffff";
+		};
+		//---------------------------------------------------
+		
+		ball.drawCircle();
 }
