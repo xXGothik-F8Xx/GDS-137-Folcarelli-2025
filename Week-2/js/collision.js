@@ -9,14 +9,19 @@ var player;
 
 //This is used to stop the player from moving through obstacles.
 var prevX;
-
+var prevY;
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new GameObject();
-	player.x = 100;
+	player1 = new GameObject();
+	player1.width = 25;
+	player1.height = 125;
+	player1.x = 35;
+	player1.y = 1024/2.6;
+	player1.vx = 5;
+	player1.vy = 5;
 	
 	lBlock1 = new GameObject(canvas.width - 750, canvas.height/2+75, 100, 100,"#00ff00");
 	lBlock2 = new GameObject(canvas.width - 550, canvas.height/2+75, 100, 100,"#00ff00");
@@ -32,17 +37,17 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	
-	//Move the Player to the right
-	if(d)
-	{
-		//console.log("Moving Right");
-		player.x += 2;
-	}
-	
-	if(a)
+	//Move the Player to the up
+	if(w)
 	{
 		//console.log("Moving Right");
 		player.x += -2;
+	}
+	
+	if(s)
+	{
+		//console.log("Moving down");
+		player.x += 2;
 	}
 	
 	
@@ -77,12 +82,13 @@ function animate()
 	if(rBlock2.hitTestObject(player))
 	{
 		player.x = prevX;
-		console.log("colliding");
+		//console.log("colliding");
 	}
 	else
 	{
 		prevX = player.x;
 	}
+
 	
 	//Update the Screen
 	player.drawCircle();

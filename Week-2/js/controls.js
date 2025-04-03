@@ -1,5 +1,7 @@
 //Define Booleans for each key
+var w = false;
 var a = false;
+var s = false;
 var d = false;
 
 //Add Event Listeners

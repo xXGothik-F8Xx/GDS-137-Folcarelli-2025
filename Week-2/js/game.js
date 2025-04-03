@@ -13,14 +13,14 @@ var player1 = new GameObject();
 player1.width = 25;
 player1.height = 125;
 player1.x = 35;
-player1.y = 1024/2.6;
-player1.vx = 5;
+player1.y = 1024/2;
+player1.vx = 0;
 player1.vy = 5;
 
 function main()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	// clears the screen
-	player1.drawRect(); // draws the player paddle
+
 
 	//Move the Player to the right
 	if(w)
@@ -36,6 +36,16 @@ function main()
 		}
 		
 		//Update the Screen
-		player1.drawRect();
 
+
+	// collision detection for the top and bottom boundaries	
+	if (player1.y > canvas.height - player1.height/2)
+	{
+		player1.y = canvas.height - player1.height/2;
+	}
+	if (player1.y < 0 + player1.height/2) 
+	{
+		player1.y = 0 + player1.height/2;
+	}
+	player1.drawRect();
 }
