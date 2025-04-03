@@ -19,6 +19,23 @@ player1.vy = 5;
 
 function main()
 {
-	context.clearRect(0,0,canvas.width, canvas.height);	
-	player1.drawRect();
+	context.clearRect(0,0,canvas.width, canvas.height);	// clears the screen
+	player1.drawRect(); // draws the player paddle
+
+	//Move the Player to the right
+	if(w)
+		{
+			//console.log("Moving Right");
+			player1.y += -2;
+			
+		}
+		if(s)
+		{
+			//console.log("Moving Left");
+			player1.y += 2;
+		}
+		
+		//Update the Screen
+		player1.drawRect();
+
 }
