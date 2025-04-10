@@ -16,17 +16,13 @@ player1.x = 35;
 player1.y = 1024/2;
 player1.vx = 0;
 player1.vy = 5;
-player1.right = player1.right();
-player1.left = player1.left();
-player1.top = player1.top();
-player1.bottom = player1.bottom();
+
 var ball = new GameObject();
 ball.vx = 5;
 ball.vy = 0;
-ball.right = ball.right();
-ball.left = ball.left();
-ball.top = ball.top();
-ball.bottom = ball.bottom();
+ball.width = 50;
+ball.height = 50;
+
 function main()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	// clears the screen
@@ -92,11 +88,10 @@ function main()
 			ball.color = "#00ffff";
 		};
 
-		if(player1.right = ball.left)
+		if(ball.hitTestObject(player1))
 		{
-			ball.x = canvas.width - ball.width/2;
 			ball.vx = -ball.vx;
-			ball.color = "yellow";
+			ball.x = player1.right() + ball.width * .5;
 		}
 		//---------------------------------------------------
 		ball.drawCircle();
