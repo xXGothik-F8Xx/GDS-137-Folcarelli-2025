@@ -6,9 +6,9 @@ var timer;
 var ball;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
-var player;
+var player1;
 
-//This is used to stop the player from moving through obstacles.
+//This is used to stop the player1 from moving through obstacles.
 var prevX;
 var prevY;
 	//Set Up the Canvas
@@ -16,13 +16,13 @@ var prevY;
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player1 = new GameObject();
-	player1.width = 25;
-	player1.height = 125;
-	player1.x = 35;
-	player1.y = 1024/2.6;
-	player1.vx = 5;
-	player1.vy = 5;
+	player11 = new GameObject();
+	player11.width = 25;
+	player11.height = 125;
+	player11.x = 35;
+	player11.y = 1024/2.6;
+	player11.vx = 5;
+	player11.vy = 5;
 
 	ball = new GameObject();
 	
@@ -44,20 +44,20 @@ function animate()
 	if(w)
 	{
 		//console.log("Moving Right");
-		player.x += -2;
+		player1.x += -2;
 	}
 	
 	if(s)
 	{
 		//console.log("Moving down");
-		player.x += 2;
+		player1.x += 2;
 	}
 	
 	
 	//Check Collisions
 	
 	//Demonstrates Accuracy of Bounding Box Collision
-	if(lBlock1.hitTestObject(player))
+	if(lBlock1.hitTestObject(player1))
 	{
 		//change color
 		lBlock1.color = "yellow";
@@ -68,28 +68,28 @@ function animate()
 	}
 	
 	//Shows Bounding Boxes
-	if(lBlock2.hitTestObject(player))
+	if(lBlock2.hitTestObject(player1))
 	{
 		//draw bounding boxes
 		context.strokeRect(lBlock2.x- lBlock2.width/2, lBlock2.y - lBlock2.height/2, lBlock2.width, lBlock2.height)
-		context.strokeRect(player.x- player.width/2, player.y - player.height/2, player.width, player.height)
+		context.strokeRect(player1.x- player1.width/2, player1.y - player1.height/2, player1.width, player1.height)
 	}
 	
 	//Demonstrates how often collisions take place
-	if(rBlock1.hitTestObject(player))
+	if(rBlock1.hitTestObject(player1))
 	{
-		console.log("colliding");
+		//console.log("colliding");
 	}
 	
 	//Impede movement
-	if(rBlock2.hitTestObject(player))
+	if(rBlock2.hitTestObject(player1))
 	{
-		player.x = prevX;
+		player1.x = prevX;
 		//console.log("colliding");
 	}
 	else
 	{
-		prevX = player.x;
+		prevX = player1.x;
 	}
 
 	//ball's location
@@ -129,7 +129,7 @@ function animate()
 	}
 	
 	//Update the Screen
-	player.drawCircle();
+	player1.drawRect();
 	lBlock1.drawCircle();
 	lBlock2.drawCircle();
 	rBlock1.drawRect();
