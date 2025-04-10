@@ -66,7 +66,13 @@ function main()
 			ball.vx = -ball.vx;	
 			ball.color = "#0000FF";
 		};
-			
+		
+		if(ball.y < 0)
+		{
+			ball.y = 0 + ball.width/2;
+			ball.vy = -ball.vy;
+		};
+
 		if(ball.y > canvas.height - ball.height/2)
 		{
 			ball.y = canvas.height - ball.height/2;
@@ -78,6 +84,16 @@ function main()
 		{
 			ball.vx = -ball.vx;
 			ball.x = player1.right() + ball.width * .5;
+			
+			if(ball.y > player1.y + player1.height/6)
+			{
+				ball.vy = 5;
+			};
+
+			if(ball.y < player1.y - player1.height/6)
+				{
+					ball.vy = -5;
+				};
 		};
 
 		if (ball.x < 0)
