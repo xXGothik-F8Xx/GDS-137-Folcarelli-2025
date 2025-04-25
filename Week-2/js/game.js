@@ -41,18 +41,36 @@ function main()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	// clears the screen
 
+	//Border between players 1 and 2
+	context.save();
+	context.strokeStyle = "green";
+	context.beginPath();
+	context.moveTo(canvas.width/2, 0);
+	context.lineTo(canvas.width/2, 800);
+	context.closePath();
+	context.lineWidth = 10;
+	context.stroke();
+	context.restore();
+
 	// Text for the scoreboard //
-	context.font = '18px sans-serif';
+	context.font = `32px sans-serif`;
 	context.textAlign = "center";
-	context.fillStyle = "#000000";
-	context.fillText(`Player1: ${p1Wins}`, canvas.width/2, 75);
+	context.fillStyle = "black";
+	context.fillText("Player 1   Player 2", canvas.width/2, 50)
 
-	context.font = '18px sans-serif';
-	context.textAlign = "center";
+	// Player 1 score
+	context.font = '24px sans-serif';
+	context.textAlign = "left";
 	context.fillStyle = "#000000";
-	context.fillText(`Player2: ${p2Wins}`, canvas.width/2, 100);
+	context.fillText(`${p1Wins}`, 485, 75);
+	
+	// Player 2 score
+	context.font = '24px sans-serif';
+	context.textAlign = "left";
+	context.fillStyle = "#000000";
+	context.fillText(`${p2Wins}`, 525, 75);
 
-	//Move the Player to the right
+	//Move the Players up and down
 	if(w)
 		{
 			//console.log("Moving Up");
