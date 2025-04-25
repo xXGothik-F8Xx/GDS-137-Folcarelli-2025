@@ -28,8 +28,8 @@ function GameObject(x,y,w,h,color)
 		this.color = color;
 	
 	//player's velocity or speed on each axis
-	this.vx = 0;
-	this.vy = 0;
+	this.vx = 15;
+	this.vy = 15;
 	
 
 	
