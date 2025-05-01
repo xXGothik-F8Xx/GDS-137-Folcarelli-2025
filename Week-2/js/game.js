@@ -36,8 +36,8 @@ var ball = new GameObject();
 
 ball.vx = 5;
 ball.vy = 5;
-ball.width = 25;
-ball.height = 25;
+ball.width = 50;
+ball.height = 50;
 
 function main()
 {
@@ -180,5 +180,5 @@ function main()
 			};
 
 			//------------------------------------------------//
-			context.drawImage(img, ball.x, ball.y, ball.width, ball.height);
+			context.drawImage(img, ball.x - ball.width/2, ball.y - ball.width/2, ball.width, ball.height);
 }
