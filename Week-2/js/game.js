@@ -30,8 +30,10 @@ player2.vx = 0;
 player2.vy = 5;
 let p2Wins = 0;
 
+var img = document.getElementById("ric");
+
 var ball = new GameObject();
-ball.color =
+
 ball.vx = 5;
 ball.vy = 5;
 ball.width = 25;
@@ -165,7 +167,6 @@ function main()
 						ball.vy = -5;
 					};
 			};
-
 			//------------Win and Loss conditions------------//
 		if (ball.x < 0)
 			{
@@ -176,8 +177,8 @@ function main()
 			{
 				ball.x = canvas.width/2; // This is the Victory condition
 				p1Wins += 1;
-			}
+			};
 
 			//------------------------------------------------//
-		ball.drawCircle();
+			context.drawImage(img, ball.x, ball.y, ball.width, ball.height);
 }
